@@ -6,7 +6,6 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 
-import { StationApiService } from './providers/station.api.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { StationApiService } from './providers/station.api.service';
     HttpModule,
 		MaterialModule.forRoot()
   ],
-  providers: [StationApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

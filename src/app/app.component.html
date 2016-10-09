@@ -1,3 +1,9 @@
 <h1>
   {{title}}
 </h1>
+
+<md-list>
+  <md-list-item *ngFor="let station of stations">
+    <h1>{{ station.id }}</h1>
+  </md-list-item>
+</md-list>
