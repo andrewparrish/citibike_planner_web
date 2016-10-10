@@ -15,6 +15,7 @@ describe('App: CitbikePlannerWeb', () => {
   it('should create the app', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
+    console.log(app);
     expect(app).toBeTruthy();
   }));
 
