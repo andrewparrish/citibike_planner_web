@@ -4,6 +4,6 @@
 
 <md-list>
   <md-list-item *ngFor="let station of stations">
-    <h1>{{ station.id }}</h1>
+		<station [station]="station"></station>
   </md-list-item>
 </md-list>

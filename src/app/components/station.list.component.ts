@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StationApiService } from './../providers/station.api.service';
 import { Station } from './../models/station'
+import { StationComponent } from './station.component';
 
 @Component({
   selector: 'station-list',
