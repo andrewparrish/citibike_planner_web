@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Station } from './../models/station';
+import {ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'station',

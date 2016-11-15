@@ -2,8 +2,8 @@
   {{title}}
 </h1>
 
-<md-list>
-  <md-list-item *ngFor="let station of stations">
-		<station [station]="station"></station>
-  </md-list-item>
-</md-list>
+<ul>
+  <div class="station-list">
+		<station [station]="station" *ngFor="let station of stations"></station>
+  </div>
+</ul>

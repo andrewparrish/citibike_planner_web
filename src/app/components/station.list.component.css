@@ -1,0 +1,9 @@
+.station-list {
+  display: block;
+}
+
+.station-list /deep/ station{
+  float: left;
+  max-height: 200px;
+  max-widget: 200px;
+}
