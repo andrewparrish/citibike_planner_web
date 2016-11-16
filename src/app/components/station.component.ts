@@ -6,7 +6,8 @@ import {ViewEncapsulation} from '@angular/core';
     selector: 'station',
     templateUrl: './station.component.html',
     styleUrls: ['./station.component.css'],
-    providers: []
+    providers: [],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class StationComponent {

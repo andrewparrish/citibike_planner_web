@@ -4,6 +4,6 @@
 
 .station-list /deep/ station{
   float: left;
-  max-height: 200px;
-  max-widget: 200px;
+  max-widht: 200px;
+  padding: 5px;
 }
