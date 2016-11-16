@@ -5,10 +5,9 @@ export class Station {
         public st_address_one: String,
         public st_address_two: String,
         public longitude: Number,
-        public latitude: Number
+        public latitude: Number,
+        public maps_url: string
     ){}
 
-    GetImageUrl() {
 
-    }
 }
