@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 export const routes: Routes = [
 	{ path: 'stations', component: StationListComponent }
-]
+  //{ path: '', component: AppComponent }
+];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
