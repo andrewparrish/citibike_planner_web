@@ -1,11 +1,17 @@
 <sebm-google-map
   [latitude]="40.7128"
   [longitude]="-74.0059"
-  [style.height]="mapHeight()">
+  [style.height]="mapHeight()"
+  [zoom]="16">
 
   <sebm-google-map-marker
     *ngFor="let m of stations; let i = index"
+    (markerClick)="clickedStation(m.id, i)"
     [latitude]="m.latitude"
     [longitude]="m.longitude">
+
+    <sebm-google-map-info-window>
+      <strong>{{ currStation().station_name }}</strong>
+    </sebm-google-map-info-window>
   </sebm-google-map-marker>
 </sebm-google-map>

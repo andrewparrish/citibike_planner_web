@@ -9,5 +9,7 @@ export class Station {
         public maps_url: string
     ){}
 
-
+    static defaultStation(): Station {
+      return new Station(-1, 'Stations not yet defined', '', '', 0, 0, '');
+    }
 }
