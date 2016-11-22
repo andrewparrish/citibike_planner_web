@@ -2,28 +2,23 @@
  * Created by andrewparrish on 11/19/16.
  */
 
-import {Component, OnInit, ElementRef} from '@angular/core';
+import { Component } from '@angular/core';
 import { StationsApiComponent } from './stations.api.component';
-import { GoogleMapsApiKeyService } from '../providers/google.maps.api.key.service';
 import { StationApiService } from '../providers/station.api.service';
 
 @Component({
   selector: 'map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
-  providers: [GoogleMapsApiKeyService, StationApiService]
+  templateUrl: 'html/map.component.html',
+  styleUrls: ['css/map.component.css'],
+  providers: [StationApiService]
 })
 
-export class MapComponent extends StationsApiComponent implements OnInit {
+export class MapComponent extends StationsApiComponent {
   private _mapHeight: String;
 
-  constructor(private elementRef: ElementRef, private service: GoogleMapsApiKeyService, stationApiSevice: StationApiService)  {
-    super(stationApiSevice);
-  }
-
-  ngOnInit() {
+  constructor(stationApiService: StationApiService) {
+    super(stationApiService);
     this._mapHeight = (window.innerHeight - 64).toString() + 'px';
-    const hostElem = this.elementRef.nativeElement;
   }
 
   mapHeight() {

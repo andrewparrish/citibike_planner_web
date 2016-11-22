@@ -1,0 +1,11 @@
+<sebm-google-map
+  [latitude]="40.7128"
+  [longitude]="-74.0059"
+  [style.height]="mapHeight()">
+
+  <sebm-google-map-marker
+    *ngFor="let m of stations; let i = index"
+    [latitude]="m.latitude"
+    [longitude]="m.longitude">
+  </sebm-google-map-marker>
+</sebm-google-map>

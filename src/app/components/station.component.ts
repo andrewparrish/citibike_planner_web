@@ -6,8 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'station',
-    templateUrl: './station.component.html',
-    styleUrls: ['./station.component.css'],
+    templateUrl: 'html/station.component.html',
+    styleUrls: ['css/station.component.css'],
     providers: [],
     encapsulation: ViewEncapsulation.None
 })
