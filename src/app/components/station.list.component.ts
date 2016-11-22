@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StationApiService } from './../providers/station.api.service';
 import { Station } from './../models/station'
+import { StationsApiComponent } from './stations.api.component';
 
 @Component({
   selector: 'station-list',
@@ -9,16 +10,14 @@ import { Station } from './../models/station'
 	providers: [StationApiService]
 })
 
-export class StationListComponent implements OnInit{
+export class StationListComponent extends StationsApiComponent implements OnInit{
 	title: 'Stations';
 	stations: Station[];
 
-	constructor(private stationApiService: StationApiService) { }
+	constructor(stationApiService: StationApiService) {
+	  super(stationApiService);
+  }
 
 	ngOnInit() { this.getStations(); }
 
-	getStations() {
-		this.stationApiService.getStations()
-													.subscribe(stations => this.stations = stations);
-	}
 }

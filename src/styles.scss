@@ -44,3 +44,7 @@ $theme: md-light-theme($primary, $accent);
   -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  margin: 0px !important;
+}
