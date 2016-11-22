@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service.ts';
+import { ApiService } from './api.service';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Station } from './../models/station';
@@ -9,10 +9,10 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class StationApiService extends ApiService {
-  private stationUrl = this.base_url.dev + '/stations';
+  private stationUrl = super.baseUrl().dev + '/stations';
 
 	constructor (private http: Http) {
-		super();	
+		super();
 	}
 
   getStations() : Observable<Station[]> {
