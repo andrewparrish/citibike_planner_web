@@ -2,7 +2,7 @@
  * Created by andrewparrish on 11/19/16.
  */
 
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { StationsApiComponent } from './stations.api.component';
 import { StationApiService } from '../providers/station.api.service';
 import { Station } from "../models/station";
@@ -15,6 +15,8 @@ import { Station } from "../models/station";
 })
 
 export class MapComponent extends StationsApiComponent {
+  @ViewChild('infopane') infoPane;
+
   private _mapHeight: String;
   private _currStation: Station;
 
@@ -28,6 +30,7 @@ export class MapComponent extends StationsApiComponent {
   }
   clickedStation(stationId, index): void {
     this._currStation = this.stations[index];
+    console.log("INFO PANE", this.infoPane);
   }
 
   currStation(): Station {
