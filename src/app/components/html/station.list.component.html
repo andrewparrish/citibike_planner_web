@@ -2,12 +2,10 @@
   {{title}}
 </h1>
 
-<ul>
-  <!--<div class="station-list">-->
-  <md-grid-list cols="2">
-    <md-grid-tile *ngFor="let station of stations">
-      <station-card [station]="station"></station-card>
-    </md-grid-tile>
-  </md-grid-list>
-  <!--</div>-->
-</ul>
+<div layout="column" layout-align="center center" c>
+  <md-list class="station-list">
+    <station-list-item [station]="station" *ngFor="let station of stations"></station-list-item>
+  </md-list>
+</div>
+
+

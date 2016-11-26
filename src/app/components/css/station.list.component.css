@@ -1,9 +1,13 @@
 .station-list {
   display: block;
+  max-width: 600px;
 }
 
-.station-list /deep/ station{
-  float: left;
-  max-widht: 200px;
-  padding: 5px;
+.station-list /deep/ .card-item > .md-list-item{
+  height: auto !important;
 }
+/*.station-list /deep/ station{*/
+  /*float: left;*/
+  /*max-widht: 200px;*/
+  /*padding: 5px;*/
+/*}*/

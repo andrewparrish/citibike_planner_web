@@ -7,9 +7,21 @@ import { ViewEncapsulation } from '@angular/core';
   selector: 'station-list-item',
   templateUrl: 'html/station.list.item.component.html',
   styleUrls: ['css/station.list.item.component.css'],
-  providers: []
+  providers: [],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class StationListItemComponent {
   @Input() station: Station;
+
+  public showListItem : Boolean;
+  public itemHeight : String;
+
+  constructor() {
+    this.showListItem = true;
+  }
+
+  showDetail() {
+    this.showListItem = false;
+  }
 }

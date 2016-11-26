@@ -1,1 +1,16 @@
-
+<md-list-item [hidden]="!showListItem">
+  <h3 md-line>{{ station.station_name }}</h3>
+  <p md-line>
+    <span>Available Bikes:</span>
+    <span>{{ station.available_bikes }}</span>
+  </p>
+  <p md-line>
+    <span>Available Docks:</span>
+    <span>{{ station.available_docks }}</span>
+  </p>
+  <button md-button (click)="showDetail()">Details</button>
+  <md-icon>star</md-icon>
+</md-list-item>
+<md-list-item class="card-item" [hidden]="showListItem">
+  <station-card [station]="station"></station-card>
+</md-list-item>
