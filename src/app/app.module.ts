@@ -8,7 +8,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { StationListComponent } from './components/station.list.component';
-import { StationComponent } from './components/station.component';
+import { StationCardComponent } from './components/station.card.component';
 import { MapComponent } from  './components/map.component';
 
 import { routing } from './app.routes';
@@ -25,7 +25,7 @@ import { routing } from './app.routes';
 	declarations: [
     AppComponent,
 		StationListComponent,
-		StationComponent,
+		StationCardComponent,
     MapComponent
   ],
   providers: [],

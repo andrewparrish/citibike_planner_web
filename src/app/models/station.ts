@@ -6,10 +6,12 @@ export class Station {
         public st_address_two: String,
         public longitude: Number,
         public latitude: Number,
-        public maps_url: string
+        public maps_url: string,
+        public available_bikes: Number,
+        public available_docks: Number
     ){}
 
     static defaultStation(): Station {
-      return new Station(-1, 'Stations not yet defined', '', '', 0, 0, '');
+      return new Station(-1, 'Stations not yet defined', '', '', 0, 0, '', 0, 0);
     }
 }

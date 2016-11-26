@@ -5,14 +5,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
-    selector: 'station',
-    templateUrl: 'html/station.component.html',
-    styleUrls: ['css/station.component.css'],
+    selector: 'station-card',
+    templateUrl: 'html/station.card.component.html',
+    styleUrls: ['css/station.card.component.css'],
     providers: [],
     encapsulation: ViewEncapsulation.None
 })
 
-export class StationComponent {
+export class StationCardComponent {
 	@Input() station: Station;
 
   constructor(private sanitizer: DomSanitizer) {}

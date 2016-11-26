@@ -12,6 +12,9 @@
 
     <sebm-google-map-info-window #infopane>
       <strong>{{ currStation().station_name }}</strong>
+      <br>
+      <strong>Available Bikes: </strong>
+      <p>{{ currStation().available_bikes }}</p>
     </sebm-google-map-info-window>
   </sebm-google-map-marker>
 </sebm-google-map>
