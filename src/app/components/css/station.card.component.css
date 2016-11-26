@@ -1,4 +1,11 @@
 .station > .img {
   height: 100px;
-  widget: 200px
+  width: 200px
+}
+
+.station > md-card-header > .close-card-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
 }

@@ -24,4 +24,8 @@ export class StationListItemComponent {
   showDetail() {
     this.showListItem = false;
   }
+
+  closeCard() {
+    this.showListItem = true;
+  }
 }

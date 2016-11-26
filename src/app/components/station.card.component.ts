@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 import { Station } from './../models/station';
 import { ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,8 +14,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class StationCardComponent {
 	@Input() station: Station;
+  @Output() onCloseEmitter: EventEmitter<Boolean>;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+    this.onCloseEmitter = new EventEmitter<Boolean>();
+  }
+
+  closeCard() {
+    this.onCloseEmitter.emit(true);
+  }
 
   getImageUrl() {
     return "https://d21xlh2maitm24.cloudfront.net/nyc/Transparent-Bike.png?mtime=20160420134420";

@@ -12,5 +12,5 @@
   <md-icon>star</md-icon>
 </md-list-item>
 <md-list-item class="card-item" [hidden]="showListItem">
-  <station-card [station]="station"></station-card>
+  <station-card [station]="station" (onCloseEmitter)="closeCard()"></station-card>
 </md-list-item>
