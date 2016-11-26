@@ -1,8 +1,20 @@
 <md-toolbar color="primary">
-  <button md-button (click)="start.toggle()">
+  <button md-icon-button (click)="start.toggle()">
     <md-icon>menu</md-icon>
   </button>
   <span>Citibike Planner</span>
+  <span class="space-filler"></span>
+  <span>
+    <button md-icon-button [md-menu-trigger-for]="profileMenu">
+    <md-icon>account_circle</md-icon>
+    </button>
+    <md-menu x-position="before" #profileMenu="mdMenu">
+      <button md-menu-item> Refresh </button>
+      <button md-menu-item> Settings </button>
+      <button md-menu-item> Help </button>
+      <button md-menu-item disabled> Sign Out </button>
+    </md-menu>
+  </span>
 </md-toolbar>
 
 <md-sidenav-layout>

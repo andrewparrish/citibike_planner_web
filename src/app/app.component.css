@@ -7,3 +7,7 @@ md-sidenav {
 body {
   height: 100vh;
 }
+
+.space-filler {
+  flex: 1 1 auto;
+}
