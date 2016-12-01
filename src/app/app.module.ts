@@ -5,18 +5,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { Angular2TokenService, A2tUiModule } from 'angular2-token';
+import { CommonModule } from "@angular/common";
 
 import { AppComponent } from './app.component';
-import { StationListComponent } from './components/station.list.component';
-import { StationListItemComponent } from './components/station.list.item.component';
-import { StationCardComponent } from './components/station.card.component';
-import { MapComponent } from  './components/map.component';
+import { StationListComponent } from './components/content_components/station.list.component';
+import { StationListItemComponent } from './components/content_components/station.list.item.component';
+import { StationCardComponent } from './components/content_components/station.card.component';
+import { MapComponent } from  './components/content_components/map.component';
+
+import { SignInComponent } from './components/auth_components/sign.in.component';
 
 import { routing } from './app.routes';
 
 @NgModule({
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
 		MaterialModule.forRoot(),
@@ -28,9 +33,10 @@ import { routing } from './app.routes';
 		StationListComponent,
 		StationCardComponent,
     StationListItemComponent,
-    MapComponent
+    MapComponent,
+    SignInComponent
   ],
-  providers: [],
+  providers: [Angular2TokenService],
   bootstrap: [AppComponent]
 })
 

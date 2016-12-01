@@ -9,10 +9,9 @@
     <md-icon>account_circle</md-icon>
     </button>
     <md-menu x-position="before" #profileMenu="mdMenu">
-      <button md-menu-item> Refresh </button>
-      <button md-menu-item> Settings </button>
-      <button md-menu-item> Help </button>
-      <button md-menu-item disabled> Sign Out </button>
+      <button [routerLink]="['/user/sign-in']" md-menu-item *ngIf="!loggedIn">Sign In</button>
+      <button md-menu-item *ngIf="loggedIn">Settings</button>
+      <button md-menu-item *ngIf="loggedIn">Sign Out</button>
     </md-menu>
   </span>
 </md-toolbar>

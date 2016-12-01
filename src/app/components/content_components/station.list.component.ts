@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StationApiService } from './../providers/station.api.service';
+import { StationApiService } from '../../providers/station.api.service';
 import { StationsApiComponent } from './stations.api.component';
 import { ViewEncapsulation } from '@angular/core';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StationApiService } from './../providers/station.api.service';
-import { Station } from './../models/station'
+import { StationApiService } from '../../providers/station.api.service';
+import { Station } from '../../models/station'
 
 @Component({
   providers: [StationApiService]

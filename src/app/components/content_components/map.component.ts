@@ -4,8 +4,8 @@
 
 import {Component, ViewChild} from '@angular/core';
 import { StationsApiComponent } from './stations.api.component';
-import { StationApiService } from '../providers/station.api.service';
-import { Station } from "../models/station";
+import { StationApiService } from '../../providers/station.api.service';
+import { Station } from "../../models/station";
 
 @Component({
   selector: 'map',
