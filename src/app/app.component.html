@@ -10,6 +10,7 @@
     </button>
     <md-menu x-position="before" #profileMenu="mdMenu">
       <button [routerLink]="['/user/sign-in']" md-menu-item *ngIf="!loggedIn">Sign In</button>
+      <button [routerLink]="['/user/sign-up']" md-menu-item *ngIf="!loggedIn">Sign up</button>
       <button md-menu-item *ngIf="loggedIn">Settings</button>
       <button md-menu-item *ngIf="loggedIn">Sign Out</button>
     </md-menu>
