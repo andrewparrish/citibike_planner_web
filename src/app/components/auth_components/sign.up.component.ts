@@ -14,19 +14,26 @@ export class SignUpComponent {
   public error : Boolean;
   public errorMessage : String;
 
+  private user : Object;
+
   constructor(private _tokenService: Angular2TokenService) {
     this.error = false;
     this.errorMessage = "";
+    this.user = {
+      email: "",
+      password: "",
+      passwordConfirmation: ""
+    }
   }
 
-  submit(myForm : any) {
-    console.log("My Form", myForm);
-    // this._tokenService.signIn({
-    //   email: "",
-    //   password: "test"
-    // }).subscribe(
-    //   res => console.log(res),
-    //   error => console.log(error)
-    // );
+  submit() {
+    this._tokenService.registerAccount({
+      email: this.user['email'],
+      password: this.user['password'],
+      passwordConfirmation: this.user['passwordConfirmation']
+    }).subscribe(
+      res => console.log(res),
+      error => console.log(error)
+    );
   }
 }

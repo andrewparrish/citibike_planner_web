@@ -13,7 +13,9 @@ export class AppComponent {
   public loggedIn : Boolean;
 
   constructor(private _tokenService: Angular2TokenService) {
-    this._tokenService.init();
+    this._tokenService.init({
+      apiPath: 'http://localhost:3000'
+    });
     this.loggedIn = this._tokenService.userSignedIn();
   }
 }
