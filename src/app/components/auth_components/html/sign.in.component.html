@@ -2,9 +2,20 @@
   <md-card-content>
     <form>
       <div class="form-group">
-        <label for="email">Email Address</label>
-        <br>
-        <md-input id="email" placeholder="example@email.com"></md-input>
+        <div class="form-group">
+          <label for="emailInput">Email Address</label>
+          <br>
+          <md-input [(ngModel)]="user.email" id="emailInput" name="email" placeholder="example@email.com" required=""></md-input>
+        </div>
+        <div class="form-group">
+          <label for="passwordInput">Password</label>
+          <br>
+          <md-input [(ngModel)]="user.password" name="password" type="password" id="passwordInput" required></md-input>
+        </div>
+        <button md-button (click)="submit()" type="submit">Submit</button>
+        <div>
+          <p *ngIf="error">{{ errorMessage }}</p>
+        </div>
       </div>
     </form>
   </md-card-content>

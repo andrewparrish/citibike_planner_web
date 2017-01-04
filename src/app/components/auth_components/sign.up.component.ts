@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { ViewEncapsulation } from '@angular/core';
+import {AuthComponent} from "./auth.component";
 
 @Component({
   selector: 'sign-up',
@@ -10,15 +11,11 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 
-export class SignUpComponent {
-  public error : Boolean;
-  public errorMessage : String;
-
+export class SignUpComponent extends AuthComponent{
   private user : Object;
 
-  constructor(private _tokenService: Angular2TokenService) {
-    this.error = false;
-    this.errorMessage = "";
+  constructor(tokenService: Angular2TokenService) {
+    super(tokenService);
     this.user = {
       email: "",
       password: "",
@@ -27,7 +24,7 @@ export class SignUpComponent {
   }
 
   submit() {
-    this._tokenService.registerAccount({
+    this.tokenService.registerAccount({
       email: this.user['email'],
       password: this.user['password'],
       passwordConfirmation: this.user['passwordConfirmation']
