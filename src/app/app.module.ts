@@ -18,6 +18,7 @@ import { SignInComponent } from './components/auth_components/sign.in.component'
 import { SignUpComponent } from './components/auth_components/sign.up.component';
 
 import { routing } from './app.routes';
+import {ForgotPasswordComponent} from "./components/auth_components/forgot.password.component";
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { routing } from './app.routes';
     StationListItemComponent,
     MapComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ForgotPasswordComponent
   ],
   providers: [Angular2TokenService],
   bootstrap: [AppComponent]

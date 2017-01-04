@@ -31,12 +31,17 @@ export class SignInComponent extends AuthComponent {
   }
 
   submit() {
+    super.resetError();
     this.tokenService.signIn({
       email: this.user['email'],
       password: this.user['password']
     }).subscribe(
-      res => this.handleSuccess(),
-      error => console.log(error)
+      res => {
+        return this.handleSuccess();
+      },
+      error => {
+        return super.handleError(error);
+      }
     )
   }
 }

@@ -24,6 +24,7 @@ export class SignUpComponent extends AuthComponent{
   }
 
   submit() {
+    super.resetError();
     this.tokenService.registerAccount({
       email: this.user['email'],
       password: this.user['password'],

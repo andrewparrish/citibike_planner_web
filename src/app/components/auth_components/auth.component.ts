@@ -10,4 +10,14 @@ export class AuthComponent {
     this.errorMessage = "";
     this.tokenService = _tokenService;
   }
+
+  resetError() {
+    this.error = false;
+  }
+
+  handleError(err) {
+    this.error = true;
+    this.errorMessage = JSON.parse(err._body)["errors"];
+    console.log(err);
+  }
 }
