@@ -12,17 +12,20 @@ import { DomSanitizer } from '@angular/platform-browser';
     encapsulation: ViewEncapsulation.None
 })
 
-export class StationCardComponent {
+export class StationCardComponent{
 	@Input() station: Station;
   @Output() onCloseEmitter: EventEmitter<Boolean>;
+  private favorited : boolean;
 
   constructor(private sanitizer: DomSanitizer) {
     this.onCloseEmitter = new EventEmitter<Boolean>();
+    this.favorited = false;
   }
 
   closeCard() {
     this.onCloseEmitter.emit(true);
   }
+
 
   getImageUrl() {
     return "https://d21xlh2maitm24.cloudfront.net/nyc/Transparent-Bike.png?mtime=20160420134420";

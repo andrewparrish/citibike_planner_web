@@ -9,3 +9,7 @@
   right: 0px;
   padding: 10px;
 }
+
+svg {
+  fill: inherit;
+}

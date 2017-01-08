@@ -1,4 +1,4 @@
-<md-list-item [hidden]="!showListItem">
+<md-list-item *ngIf="showListItem">
   <h3 md-line>{{ station.station_name }}</h3>
   <p md-line>
     <span>Available Bikes:</span>
@@ -9,8 +9,11 @@
     <span>{{ station.available_docks }}</span>
   </p>
   <button md-button (click)="showDetail()">Details</button>
-  <md-icon>star</md-icon>
+  <button md-icon-button (click)="favoriteStation()">
+    <md-icon *ngIf="!favorited">star_border</md-icon>
+    <md-icon *ngIf="favorited" class="favorited">star</md-icon>
+  </button>
 </md-list-item>
-<md-list-item class="card-item" [hidden]="showListItem">
+<md-list-item class="card-item" *ngIf="!showListItem">
   <station-card [station]="station" (onCloseEmitter)="closeCard()"></station-card>
 </md-list-item>

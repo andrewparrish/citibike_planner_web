@@ -15,14 +15,20 @@ export class StationListItemComponent {
   @Input() station: Station;
 
   public showListItem : Boolean;
-  public itemHeight : String;
+  public favorited : boolean;
 
   constructor() {
     this.showListItem = true;
+    this.favorited = false;
   }
 
   showDetail() {
     this.showListItem = false;
+  }
+
+
+  favoriteStation() {
+    this.favorited = !this.favorited;
   }
 
   closeCard() {
