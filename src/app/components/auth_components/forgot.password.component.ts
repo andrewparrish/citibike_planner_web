@@ -11,10 +11,16 @@ import { AuthComponent } from "./auth.component";
 
 export class ForgotPasswordComponent extends AuthComponent {
   private email : string;
+  private sent : boolean;
 
   constructor(tokenService: Angular2TokenService) {
     super(tokenService);
     this.email = "";
+    this.sent = false;
+  }
+
+  handleSuccess() {
+    this.sent = true;
   }
 
   submit() {
@@ -22,7 +28,7 @@ export class ForgotPasswordComponent extends AuthComponent {
     this.tokenService.resetPassword({
       email: this.email
     }).subscribe(
-      res => console.log(res),
+      res => this.handleSuccess(),
       error => super.handleError(error)
     )
   }

@@ -19,6 +19,7 @@ import { SignUpComponent } from './components/auth_components/sign.up.component'
 
 import { routing } from './app.routes';
 import {ForgotPasswordComponent} from "./components/auth_components/forgot.password.component";
+import {ChangePasswordComponent} from "./components/auth_components/change.password.component";
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import {ForgotPasswordComponent} from "./components/auth_components/forgot.passw
     MapComponent,
     SignInComponent,
     SignUpComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
   providers: [Angular2TokenService],
   bootstrap: [AppComponent]

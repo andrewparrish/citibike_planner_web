@@ -14,7 +14,8 @@ export class AppComponent {
 
   constructor(private _tokenService: Angular2TokenService) {
     this._tokenService.init({
-      apiPath: 'http://localhost:3000'
+      apiPath: 'http://localhost:3000',
+      resetPasswordCallback: 'http://localhost:4200/user/change-password'
     });
     this.loggedIn = this._tokenService.userSignedIn();
   }
