@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { AuthComponent } from "./auth.component";
 import {URLSearchParams, Http, Headers, RequestOptions} from "@angular/http";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'change-password',
@@ -14,14 +13,16 @@ import {Router} from "@angular/router";
 export class ChangePasswordComponent extends AuthComponent {
   private data : Object;
   private changeUrl : string;
+  private updated : boolean;
 
-  constructor(private router: Router, private http: Http, tokenService: Angular2TokenService) {
+  constructor(private http: Http, tokenService: Angular2TokenService) {
     super(tokenService);
     this.data = {
       password: "",
       passwordConfirmation: ""
     };
-    this.changeUrl = "http://localhost:3000/auth/password"
+    this.changeUrl = "http://localhost:3000/auth/password";
+    this.updated = false;
   }
 
   private buildHeaders(params : URLSearchParams) {
@@ -41,7 +42,7 @@ export class ChangePasswordComponent extends AuthComponent {
   }
 
   private handleSuccess() {
-    this.router.navigateByUrl('/user/password-updated')
+    this.updated = true;
   }
 
   submit() {
