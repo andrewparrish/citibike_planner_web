@@ -22,8 +22,11 @@ export class StationApiService extends ApiService {
       .catch((error:any) => Observable.throw(error.json().error));
   }
 
+  getStreetView() : Observable<String> {
+    return this._tokenService.get();
+  }
+
   favoriteStation(station : Station) {
-    console.log(this._tokenService.currentAuthData);
     return this._tokenService.request(
       {
         method: RequestMethod.Put,
