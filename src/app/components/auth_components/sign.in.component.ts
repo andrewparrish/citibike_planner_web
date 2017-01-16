@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { ViewEncapsulation } from '@angular/core';
-import {SignUpComponent} from "./sign.up.component";
 import {AuthComponent} from "./auth.component";
 import {Router} from "@angular/router";
 
@@ -18,8 +17,8 @@ export class SignInComponent extends AuthComponent {
   public errorMessage : String;
   private user : Object;
 
-  constructor(tokenService: Angular2TokenService, private router: Router) {
-    super(tokenService);
+  constructor(private _tokenService: Angular2TokenService, private router: Router) {
+    super();
     this.user = {
       email: "",
       password: ""
@@ -27,20 +26,21 @@ export class SignInComponent extends AuthComponent {
   }
 
   private handleSuccess() {
+    console.log("AUTH DATA");
+    console.log(this._tokenService.userSignedIn());
     this.router.navigate(['/map']);
   }
 
   submit() {
     super.resetError();
-    this.tokenService.signIn({
+    this._tokenService.signIn({
       email: this.user['email'],
-      password: this.user['password']
+      password: this.user['password'],
+      userType: 'user'
     }).subscribe(
-      res => {
-        return this.handleSuccess();
-      },
+      res => this.handleSuccess(),
       error => {
-        return super.handleError(error);
+        super.handleError(error);
       }
     )
   }

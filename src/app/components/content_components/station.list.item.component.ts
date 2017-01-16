@@ -1,23 +1,26 @@
 import { Component, Input } from '@angular/core';
 import { Station } from '../../models/station';
 import { ViewEncapsulation } from '@angular/core';
+import {StationsApiComponent} from "./stations.api.component";
+import {StationApiService} from "../../providers/station.api.service";
 
 
 @Component({
   selector: 'station-list-item',
   templateUrl: 'html/station.list.item.component.html',
   styleUrls: ['css/station.list.item.component.css'],
-  providers: [],
+  providers: [StationApiService],
   encapsulation: ViewEncapsulation.None
 })
 
-export class StationListItemComponent {
+export class StationListItemComponent extends StationsApiComponent {
   @Input() station: Station;
 
   public showListItem : Boolean;
   public favorited : boolean;
 
-  constructor() {
+  constructor(stationApiService: StationApiService) {
+    super(stationApiService);
     this.showListItem = true;
     this.favorited = false;
   }
@@ -28,6 +31,7 @@ export class StationListItemComponent {
 
 
   favoriteStation() {
+    super.favoriteStation(this.station);
     this.favorited = !this.favorited;
   }
 

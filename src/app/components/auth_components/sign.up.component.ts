@@ -14,8 +14,8 @@ import {AuthComponent} from "./auth.component";
 export class SignUpComponent extends AuthComponent{
   private user : Object;
 
-  constructor(tokenService: Angular2TokenService) {
-    super(tokenService);
+  constructor(private _tokenService: Angular2TokenService) {
+    super();
     this.user = {
       email: "",
       password: "",
@@ -25,7 +25,7 @@ export class SignUpComponent extends AuthComponent{
 
   submit() {
     super.resetError();
-    this.tokenService.registerAccount({
+    this._tokenService.registerAccount({
       email: this.user['email'],
       password: this.user['password'],
       passwordConfirmation: this.user['passwordConfirmation']
