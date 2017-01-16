@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StationApiService } from '../../providers/station.api.service';
 import { Station } from '../../models/station'
 
@@ -6,7 +6,7 @@ import { Station } from '../../models/station'
   providers: [StationApiService]
 })
 
-export class StationsApiComponent implements OnInit {
+export class StationsApiComponent {
   get stations(): Station[] {
     return this._stations;
   }
@@ -14,12 +14,16 @@ export class StationsApiComponent implements OnInit {
 
   constructor(private stationApiService: StationApiService) { }
 
-  ngOnInit() {
-    this.getStations();
-  }
-
   getStations() {
     this.stationApiService.getStations()
       .subscribe(stations => this._stations = stations);
+  }
+
+  favoriteStation(station : Station) {
+    this.stationApiService.favoriteStation(station)
+      .subscribe(
+        res => console.log(res),
+        error => console.log(error)
+      );
   }
 }

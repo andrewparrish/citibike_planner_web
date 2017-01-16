@@ -29,7 +29,8 @@ import {ChangePasswordComponent} from "./components/auth_components/change.passw
     HttpModule,
 		MaterialModule.forRoot(),
 		routing,
-    AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot(),
+    A2tUiModule
   ],
 	declarations: [
     AppComponent,

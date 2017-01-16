@@ -1,28 +1,44 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Station } from './../models/station';
+import { Angular2TokenService } from 'angular2-token';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class StationApiService extends ApiService {
-  private stationUrl = super.baseUrl().dev + '/stations';
+  private stationsUrl = super.baseUrl().dev + '/stations';
 
-	constructor (private http: Http) {
-		super();
-	}
-
-  getStations() : Observable<Station[]> {
-		return this.http.get(this.stationUrl)
-										.map((res: Response) => res.json())
-                    .catch((error:any) => Observable.throw(error.json().error));
+  constructor (private http: Http, private _tokenService: Angular2TokenService) {
+    super();
   }
 
-	private extractData(res: Response) {
-		console.log(res);
-		return res.json();
-	}
+  getStations() : Observable<Station[]> {
+    return this.http.get(this.stationsUrl)
+      .map((res: Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error));
+  }
+
+  favoriteStation(station : Station) {
+    console.log(this._tokenService.currentAuthData);
+    return this._tokenService.request(
+      {
+        method: RequestMethod.Put,
+        url: this.favoriteUrl(station)
+      })
+      .map(res => res.json())
+      .catch(err => Observable.throw(err.json().error));
+  }
+
+  private favoriteUrl(station) {
+    return super.baseUrl().dev + '/station/' + station.id + '/favorite';
+  }
+
+  private extractData(res: Response) {
+    console.log(res);
+    return res.json();
+  }
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Angular2TokenService } from 'angular2-token';
 import { AuthComponent } from "./auth.component";
 import {URLSearchParams, Http, Headers, RequestOptions} from "@angular/http";
 
@@ -15,8 +14,8 @@ export class ChangePasswordComponent extends AuthComponent {
   private changeUrl : string;
   private updated : boolean;
 
-  constructor(private http: Http, tokenService: Angular2TokenService) {
-    super(tokenService);
+  constructor(private http: Http) {
+    super();
     this.data = {
       password: "",
       passwordConfirmation: ""
