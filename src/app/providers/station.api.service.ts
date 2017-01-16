@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { Http, Response, RequestMethod } from '@angular/http';
+import {Http, Response, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Station } from './../models/station';
 import { Angular2TokenService } from 'angular2-token';
@@ -22,8 +22,14 @@ export class StationApiService extends ApiService {
       .catch((error:any) => Observable.throw(error.json().error));
   }
 
-  getStreetView() : Observable<String> {
-    return this._tokenService.get();
+  streetViewUrl(station_id, width) {
+    return 'station/' + station_id + '/streetview/' + width;
+  }
+
+  getStreetView(station_id, width) {
+    return this._tokenService.get(this.streetViewUrl(station_id, width))
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error));
   }
 
   favoriteStation(station : Station) {

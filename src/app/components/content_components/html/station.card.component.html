@@ -1,4 +1,4 @@
-<md-card class="station" md-theme="default" md-theme-watch>
+<md-card id="stationCard" class="station" md-theme="default" md-theme-watch>
   <md-card-header>
     <button md-icon-button class="close-card-button" (click)="closeCard()" ><md-icon>close</md-icon></button>
     <md-card-title>{{ station.station_name }}</md-card-title>
@@ -9,6 +9,6 @@
     <p>Here is some more content</p>
   </md-card-content>
   <md-card-actions>
-    <button md-button>Street View</button>
+    <button md-button (click)="showStreetView()">Street View</button>
   </md-card-actions>
 </md-card>

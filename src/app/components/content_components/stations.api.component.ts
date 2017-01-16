@@ -11,8 +11,11 @@ export class StationsApiComponent {
     return this._stations;
   }
   private _stations: Station[];
+  public stationApiService: StationApiService;
 
-  constructor(private stationApiService: StationApiService) { }
+  constructor(stationApiService: StationApiService) {
+    this.stationApiService = stationApiService;
+  }
 
   getStations() {
     this.stationApiService.getStations()
