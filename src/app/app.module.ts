@@ -13,7 +13,6 @@ import { StationListComponent } from './components/content_components/station.li
 import { StationListItemComponent } from './components/content_components/station.list.item.component';
 import { StationCardComponent } from './components/content_components/station.card.component';
 import { MapComponent } from  './components/content_components/map.component';
-
 import { SignInComponent } from './components/auth_components/sign.in.component';
 import { SignUpComponent } from './components/auth_components/sign.up.component';
 
@@ -36,7 +35,7 @@ import { routing } from './app.routes';
     StationListItemComponent,
     MapComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
   ],
   providers: [Angular2TokenService],
   bootstrap: [AppComponent]

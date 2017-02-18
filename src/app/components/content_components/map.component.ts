@@ -7,6 +7,9 @@ import { StationsApiComponent } from './stations.api.component';
 import { StationApiService } from '../../providers/station.api.service';
 import { Station } from "../../models/station";
 
+import * as L from 'leaflet';
+import { Map } from 'leaflet';
+
 @Component({
   selector: 'map',
   templateUrl: 'html/map.component.html',
@@ -20,9 +23,12 @@ export class MapComponent extends StationsApiComponent {
   private _mapHeight: String;
   private _currStation: Station;
 
+  protected _map: Map;
+
   constructor(stationApiService: StationApiService) {
     super(stationApiService);
     this._mapHeight = (window.innerHeight - 64).toString() + 'px';
+    this._map = L.map("mapid").setView([40.7128, -74.0059], 12);
   }
 
   mapHeight() {
