@@ -32,7 +32,7 @@ export class MapComponent extends StationsApiComponent {
   ngOnInit() {
     this.map = L.map("mapid", {
       zoomControl: false,
-      zoom: 12,
+      zoom: 22,
       center: L.latLng(40.7128, -74.0059),
       layers: [this.mapsService.baseMaps.OpenStreetMap]
     });
@@ -45,9 +45,9 @@ export class MapComponent extends StationsApiComponent {
 
   addStationIcons() {
     let testIcon = L.icon({
-      iconUrl: './assets/dock_12.svg',
+      iconUrl: './assets/bikezero.svg',
 
-      iconSize: [38, 95]
+      iconSize: [40,90]
     });
 
     this.getStations().subscribe((stations) => {
