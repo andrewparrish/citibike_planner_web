@@ -6,6 +6,7 @@ import * as L from 'leaflet';
 export class MapsService {
   public baseMaps: any;
   public icons: any;
+  public map: L.Map;
 
   // CREDIT: https://github.com/haoliangyu/angular2-leaflet-starter/blob/master/public_src/services/map.service.ts
   constructor(private http: Http) {
@@ -21,11 +22,50 @@ export class MapsService {
       })
     };
 
+    this.icons = {};
     this.generateIcons();
   }
 
-  marketForStation(station, iconType = 'bike') {
-    let key = iconType == 'bike' ? 'available_bikes' : 'available_docks';
+  generateMap(map_id) {
+    this.map = L.map(map_id, {
+      zoomControl: false,
+      zoom: 22,
+      center: L.latLng(40.7128, -74.0059),
+      layers: [this.baseMaps.CartoDB]
+    });
+
+    L.control.layers(this.baseMaps).addTo(this.map);
+    L.control.zoom({ position: "topright" }).addTo(this.map);
+
+    return this.map;
+  }
+
+  iconForStation(station, iconType) : L.Icon {
+    let url = this.iconUrlForStation(station, iconType);
+    return L.icon({
+      iconUrl: url,
+      iconSize: [40, 90]
+    });
+  }
+
+  markerForStation(station, iconType) {
+    L.marker(L.latLng(station.latitude, station.longitude), {
+      icon: this.iconForStation(station, iconType)
+    }).addTo(this.map);
+  }
+
+  iconUrlForStation(station, iconType) {
+    iconType = iconType || 'bike';
+    let key = iconType === 'bike' ? 'available_bikes' : 'available_docks';
+    let num = station[key];
+    num = num > 15 ? 15 : num;
+
+    console.log(station);
+    console.log(key);
+    console.log(num);
+    console.log(this.icons);
+
+    return this.icons[iconType][num];
   }
 
   iconRange(): number[] {
@@ -39,6 +79,7 @@ export class MapsService {
 
   generateIcons() {
     ['bike', 'dock'].forEach((type) => {
+      this.icons[type] = {};
       this.iconRange().forEach((num) => {
         this.icons[type][num] = "./assets/" + type + "s/" + type + "_" + num + ".svg";
       });

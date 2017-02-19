@@ -30,29 +30,15 @@ export class MapComponent extends StationsApiComponent {
   }
 
   ngOnInit() {
-    this.map = L.map("mapid", {
-      zoomControl: false,
-      zoom: 22,
-      center: L.latLng(40.7128, -74.0059),
-      layers: [this.mapsService.baseMaps.CartoDB]
-    });
-
-    L.control.layers(this.mapsService.baseMaps).addTo(this.map);
-    L.control.zoom({ position: "topright" }).addTo(this.map);
+    this.map = this.mapsService.generateMap("mapid");
 
     this.addStationIcons();
   }
 
   addStationIcons() {
-    let testIcon = L.icon({
-      iconUrl: './assets/bikezero.svg',
-
-      iconSize: [40,90]
-    });
-
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
-        L.marker(L.latLng(station.latitude, station.longitude), { icon: testIcon }).addTo(this.map);
+        this.mapsService.markerForStation(station, null);
       });
     });
   }
