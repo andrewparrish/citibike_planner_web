@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1744px" height="549px" viewBox="0 0 1744 549" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>dockbutton</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="46.7501462%" cy="50%" fx="46.7501462%" fy="50%" r="489.03505%" id="radialGradient-1">
+            <stop stop-color="#FCFCFC" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </radialGradient>
+        <rect id="path-2" x="0" y="0" width="1744" height="549" rx="8"></rect>
+        <mask id="mask-3" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1744" height="549" fill="white">
+            <use xlink:href="#path-2"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dockbutton">
+            <use id="Rectangle" stroke="#000000" mask="url(#mask-3)" stroke-width="24" fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+            <g id="dock" transform="translate(235.000000, 76.000000)" stroke="#020202" stroke-width="6" fill="#4990E2" fill-rule="evenodd">
+                <path d="M29.6535326,0 L130.095109,0 L159.748641,398 L0,398 L23.9325618,76.7849962 L29.6535326,0 Z M50.6812661,29.3606557 L47.3380928,94.816718 L33.3525815,368.639344 C33.3525815,368.639344 56.1871603,385.030466 80.0288723,385.030466 C103.870584,385.030466 126.705163,368.639344 126.705163,368.639344 L109.376478,29.3606557 L50.6812661,29.3606557 Z" id="Combined-Shape"></path>
+            </g>
+            <text id="Show-Available-Docks" font-family="LucidaGrande, Lucida Grande" font-size="100" font-weight="normal" fill="#4990E2">
+                <tspan x="593" y="301">Show Available Docks</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
