@@ -44,9 +44,15 @@ export class MapComponent extends StationsApiComponent {
   }
 
   addStationIcons() {
+    let testIcon = L.icon({
+      iconUrl: './assets/dock_12.svg',
+
+      iconSize: [38, 95]
+    });
+
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
-        L.marker(L.latLng(station.latitude, station.longitude)).addTo(this.map);
+        L.marker(L.latLng(station.latitude, station.longitude), { icon: testIcon }).addTo(this.map);
       });
     });
   }
