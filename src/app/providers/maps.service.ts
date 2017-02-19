@@ -1,9 +1,11 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
+import * as L from 'leaflet';
 
 @Injectable()
 export class MapsService {
   public baseMaps: any;
+  public icons: any;
 
   // CREDIT: https://github.com/haoliangyu/angular2-leaflet-starter/blob/master/public_src/services/map.service.ts
   constructor(private http: Http) {
@@ -18,5 +20,28 @@ export class MapsService {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
       })
     };
+
+    this.generateIcons();
+  }
+
+  marketForStation(station, iconType = 'bike') {
+    let key = iconType == 'bike' ? 'available_bikes' : 'available_docks';
+  }
+
+  iconRange(): number[] {
+    let arr = [];
+    for(let i = 0; i <= 15; i++) {
+      arr.push(i);
+    }
+
+    return arr;
+  }
+
+  generateIcons() {
+    ['bike', 'dock'].forEach((type) => {
+      this.iconRange().forEach((num) => {
+        this.icons[type][num] = "./assets/" + type + "s/" + type + "_" + num + ".svg";
+      });
+    });
   }
 }

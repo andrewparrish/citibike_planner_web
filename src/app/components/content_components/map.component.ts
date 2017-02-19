@@ -34,7 +34,7 @@ export class MapComponent extends StationsApiComponent {
       zoomControl: false,
       zoom: 22,
       center: L.latLng(40.7128, -74.0059),
-      layers: [this.mapsService.baseMaps.OpenStreetMap]
+      layers: [this.mapsService.baseMaps.CartoDB]
     });
 
     L.control.layers(this.mapsService.baseMaps).addTo(this.map);
