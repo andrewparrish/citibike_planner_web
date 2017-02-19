@@ -2,6 +2,8 @@ import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import * as L from 'leaflet';
 
+const ZOOM = 22;
+
 @Injectable()
 export class MapsService {
   public baseMaps: any;
@@ -29,7 +31,7 @@ export class MapsService {
   generateMap(map_id) {
     this.map = L.map(map_id, {
       zoomControl: false,
-      zoom: 22,
+      zoom: ZOOM,
       center: L.latLng(40.7128, -74.0059),
       layers: [this.baseMaps.CartoDB]
     });
@@ -59,11 +61,6 @@ export class MapsService {
     let key = iconType === 'bike' ? 'available_bikes' : 'available_docks';
     let num = station[key];
     num = num > 15 ? 15 : num;
-
-    console.log(station);
-    console.log(key);
-    console.log(num);
-    console.log(this.icons);
 
     return this.icons[iconType][num];
   }

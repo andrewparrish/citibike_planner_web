@@ -8,7 +8,6 @@ import { Station } from '../../models/station'
 
 export class StationsApiComponent implements OnInit {
   get stations(): Station[] {
-    console.log("HERE");
     return this._stations;
   }
   private _stations: Station[];

@@ -7,7 +7,6 @@ import { StationsApiComponent } from './stations.api.component';
 import { StationApiService } from '../../providers/station.api.service';
 import { Station } from "../../models/station";
 
-import * as L from 'leaflet';
 import { Map } from 'leaflet';
 import {MapsService} from "../../providers/maps.service";
 
@@ -22,11 +21,13 @@ export class MapComponent extends StationsApiComponent {
   @ViewChild('infopane') infoPane;
 
   private _currStation: Station;
+  private iconDisplay: string;
 
   protected map: Map;
 
   constructor(stationApiService: StationApiService, private mapsService: MapsService) {
     super(stationApiService);
+    this.iconDisplay = 'bike';
   }
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class MapComponent extends StationsApiComponent {
   addStationIcons() {
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
-        this.mapsService.markerForStation(station, null);
+        this.mapsService.markerForStation(station, this.iconDisplay);
       });
     });
   }

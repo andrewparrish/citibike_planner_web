@@ -8,8 +8,16 @@
   height: 100%;
 }
 
-#toggleBike {
+#toggleButtons {
   z-index: 1001;
   position: absolute;
-  top:  200px;
+  padding: 20px;
+}
+
+
+#toggleBike {
+}
+.toggleButton {
+  float: left;
+  background-color: white;
 }
