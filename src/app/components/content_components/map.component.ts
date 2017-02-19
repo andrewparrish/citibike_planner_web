@@ -21,16 +21,12 @@ import {MapsService} from "../../providers/maps.service";
 export class MapComponent extends StationsApiComponent {
   @ViewChild('infopane') infoPane;
 
-  private _mapHeight: String;
-  private _mapWidth: String;
   private _currStation: Station;
 
   protected map: Map;
 
   constructor(stationApiService: StationApiService, private mapsService: MapsService) {
     super(stationApiService);
-    this._mapHeight = (window.innerHeight - 64).toString() + 'px';
-    this._mapWidth = (window.innerWidth) + 'px';
   }
 
   ngOnInit() {
@@ -43,14 +39,16 @@ export class MapComponent extends StationsApiComponent {
 
     L.control.layers(this.mapsService.baseMaps).addTo(this.map);
     L.control.zoom({ position: "topright" }).addTo(this.map);
+
+    this.addStationIcons();
   }
 
-  mapHeight() {
-    return this._mapHeight || '1000px';
-  }
-
-  mapWidth() {
-    return this._mapWidth;
+  addStationIcons() {
+    this.getStations().subscribe((stations) => {
+      stations.forEach((station) => {
+        L.marker(L.latLng(station.latitude, station.longitude)).addTo(this.map);
+      });
+    });
   }
 
   clickedStation(stationId, index): void {

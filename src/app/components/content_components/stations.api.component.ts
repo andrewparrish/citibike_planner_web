@@ -8,6 +8,7 @@ import { Station } from '../../models/station'
 
 export class StationsApiComponent implements OnInit {
   get stations(): Station[] {
+    console.log("HERE");
     return this._stations;
   }
   private _stations: Station[];
@@ -15,11 +16,10 @@ export class StationsApiComponent implements OnInit {
   constructor(private stationApiService: StationApiService) { }
 
   ngOnInit() {
-    this.getStations();
+    this.getStations().subscribe(stations => this._stations = stations);
   }
 
-  getStations() {
-    this.stationApiService.getStations()
-      .subscribe(stations => this._stations = stations);
+  getStations()  {
+    return this.stationApiService.getStations();
   }
 }
