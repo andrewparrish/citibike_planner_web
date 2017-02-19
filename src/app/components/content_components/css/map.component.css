@@ -7,3 +7,9 @@
   width: 100%;
   height: 100%;
 }
+
+#toggleBike {
+  z-index: 1001;
+  position: absolute;
+  top:  200px;
+}
