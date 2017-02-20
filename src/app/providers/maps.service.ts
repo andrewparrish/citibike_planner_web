@@ -10,6 +10,8 @@ export class MapsService {
   public icons: any;
   public map: L.Map;
 
+  private markers;
+
   // CREDIT: https://github.com/haoliangyu/angular2-leaflet-starter/blob/master/public_src/services/map.service.ts
   constructor(private http: Http) {
     this.baseMaps = {
@@ -25,6 +27,7 @@ export class MapsService {
     };
 
     this.icons = {};
+    this.markers = {};
     this.generateIcons();
   }
 
@@ -51,9 +54,16 @@ export class MapsService {
   }
 
   markerForStation(station, iconType) {
-    L.marker(L.latLng(station.latitude, station.longitude), {
-      icon: this.iconForStation(station, iconType)
-    }).addTo(this.map);
+    let marker = null;
+    if (this.markers[station.id] === undefined) {
+      marker = L.marker(L.latLng(station.latitude, station.longitude), {
+        icon: this.iconForStation(station, iconType)
+      });
+      marker.addTo(this.map);
+    } else {
+      this.markers[station.id].setIcon(this.iconForStation(station, iconType));
+    }
+    this.markers[station.id] = marker;
   }
 
   iconUrlForStation(station, iconType) {
