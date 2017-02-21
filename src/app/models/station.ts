@@ -4,8 +4,8 @@ export class Station {
         public station_name: String,
         public st_address_one: String,
         public st_address_two: String,
-        public longitude: Number,
-        public latitude: Number,
+        public longitude: number,
+        public latitude: number,
         public maps_url: string,
         public available_bikes: Number,
         public available_docks: Number

@@ -7,27 +7,57 @@ import { StationsApiComponent } from './stations.api.component';
 import { StationApiService } from '../../providers/station.api.service';
 import { Station } from "../../models/station";
 
+import { Map } from 'leaflet';
+import {MapsService} from "../../providers/maps.service";
+
 @Component({
   selector: 'map',
   templateUrl: 'html/map.component.html',
   styleUrls: ['css/map.component.css'],
-  providers: [StationApiService]
+  providers: [StationApiService, MapsService]
 })
 
 export class MapComponent extends StationsApiComponent {
   @ViewChild('infopane') infoPane;
 
-  private _mapHeight: String;
   private _currStation: Station;
+  private iconDisplay: string;
 
-  constructor(stationApiService: StationApiService) {
+  protected map: Map;
+
+  constructor(stationApiService: StationApiService, private mapsService: MapsService) {
     super(stationApiService);
-    this._mapHeight = (window.innerHeight - 64).toString() + 'px';
+    this.iconDisplay = 'bike';
   }
 
-  mapHeight() {
-    return this._mapHeight || '1000px';
+  ngOnInit() {
+    this.map = this.mapsService.generateMap("mapid");
+
+    this.addStationIcons();
   }
+
+  setDocksActive() {
+    if (this.iconDisplay !== 'dock') {
+      this.iconDisplay = 'dock';
+      this.addStationIcons();
+    }
+  }
+
+  setBikesActive() {
+    if (this.iconDisplay !== 'bike') {
+      this.iconDisplay = 'bike';
+      this.addStationIcons();
+    }
+  }
+
+  addStationIcons() {
+    this.getStations().subscribe((stations) => {
+      stations.forEach((station) => {
+        this.mapsService.markerForStation(station, this.iconDisplay);
+      });
+    });
+  }
+
   clickedStation(stationId, index): void {
     this._currStation = this.stations[index];
     console.log("INFO PANE", this.infoPane);

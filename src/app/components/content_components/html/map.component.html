@@ -1,20 +1,34 @@
-<sebm-google-map
-  [latitude]="40.7128"
-  [longitude]="-74.0059"
-  [style.height]="mapHeight()"
-  [zoom]="16">
+<!--<sebm-google-map-->
+  <!--[latitude]="40.7128"-->
+  <!--[longitude]="-74.0059"-->
+  <!--[style.height]="mapHeight()"-->
+  <!--[zoom]="16">-->
 
-  <sebm-google-map-marker
-    *ngFor="let m of stations; let i = index"
-    (markerClick)="clickedStation(m.id, i)"
-    [latitude]="m.latitude"
-    [longitude]="m.longitude">
+  <!--<sebm-google-map-marker-->
+    <!--*ngFor="let m of stations; let i = index"-->
+    <!--(markerClick)="clickedStation(m.id, i)"-->
+    <!--[latitude]="m.latitude"-->
+    <!--[longitude]="m.longitude">-->
 
-    <sebm-google-map-info-window #infopane>
-      <strong>{{ currStation().station_name }}</strong>
-      <br>
-      <strong>Available Bikes: </strong>
-      <p>{{ currStation().available_bikes }}</p>
-    </sebm-google-map-info-window>
-  </sebm-google-map-marker>
-</sebm-google-map>
+    <!--<sebm-google-map-info-window #infopane>-->
+      <!--<strong>{{ currStation().station_name }}</strong>-->
+      <!--<br>-->
+      <!--<strong>Available Bikes: </strong>-->
+      <!--<p>{{ currStation().available_bikes }}</p>-->
+    <!--</sebm-google-map-info-window>-->
+  <!--</sebm-google-map-marker>-->
+<!--</sebm-google-map>-->
+
+<div id="toggleButtons">
+  <button md-raised-button id="toggleBike" (click)="setBikesActive()" class="toggleButton">Bikes</button>
+  <button md-raised-button class="toggleButton" (click)="setDocksActive()">Docks</button>
+</div>
+
+<div id="mapContainer">
+  <div id="stationOverlay">
+    THIS IS A TEST
+  </div>
+  <div id="mapid"></div>
+</div>
+
+
