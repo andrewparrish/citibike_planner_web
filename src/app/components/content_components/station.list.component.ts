@@ -19,7 +19,7 @@ export class StationListComponent extends StationsApiComponent implements OnInit
   }
 
   ngOnInit() {
-    super.getStations();
+    super.ngOnInit();
   }
 }
 

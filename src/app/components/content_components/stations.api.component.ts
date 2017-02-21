@@ -11,8 +11,11 @@ export class StationsApiComponent {
     return this._stations;
   }
   private _stations: Station[];
+  public stationApiService;
 
-  constructor(private stationApiService: StationApiService) { }
+  constructor(stationApiService: StationApiService) {
+    this.stationApiService = stationApiService;
+  }
 
   ngOnInit() {
     this.getStations().subscribe(stations => this._stations = stations);
