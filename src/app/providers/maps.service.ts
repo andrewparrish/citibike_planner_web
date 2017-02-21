@@ -62,6 +62,7 @@ export class MapsService {
       marker.addTo(this.map);
     } else {
       this.markers[station.id].setIcon(this.iconForStation(station, iconType));
+      marker = this.markers[station.id];
     }
     this.markers[station.id] = marker;
   }

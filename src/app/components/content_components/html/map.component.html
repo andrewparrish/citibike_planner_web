@@ -20,8 +20,8 @@
 <!--</sebm-google-map>-->
 
 <div id="toggleButtons">
-  <button md-raised-button id="toggleBike" class="toggleButton">Bikes</button>
-  <button md-raised-button class="toggleButton">Docks</button>
+  <button md-raised-button id="toggleBike" (click)="setBikesActive()" class="toggleButton">Bikes</button>
+  <button md-raised-button class="toggleButton" (click)="setDocksActive()">Docks</button>
 </div>
 
 <div id="mapid"></div>

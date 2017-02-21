@@ -36,6 +36,20 @@ export class MapComponent extends StationsApiComponent {
     this.addStationIcons();
   }
 
+  setDocksActive() {
+    if (this.iconDisplay !== 'dock') {
+      this.iconDisplay = 'dock';
+      this.addStationIcons();
+    }
+  }
+
+  setBikesActive() {
+    if (this.iconDisplay !== 'bike') {
+      this.iconDisplay = 'bike';
+      this.addStationIcons();
+    }
+  }
+
   addStationIcons() {
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
