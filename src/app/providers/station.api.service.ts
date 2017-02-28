@@ -18,9 +18,10 @@ export class StationApiService extends ApiService {
 
   // Only poll every 20 secs by default
   getStations(interval = 20000) : Observable<any> {
-    return Observable.interval(interval).flatMap(() => this.http.get(this.stationsUrl)
+    // return Observable.interval(interval).flatMap(() => this.http.get(this.stationsUrl)
+    return this.http.get(this.stationsUrl)
       .map((res: Response) => res.json())
-      .catch((error:any) => Observable.throw(error.json().error)));
+      .catch((error:any) => Observable.throw(error.json().error));
   }
 
   streetViewUrl(station_id, width) {

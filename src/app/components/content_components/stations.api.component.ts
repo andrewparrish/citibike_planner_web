@@ -11,15 +11,11 @@ export class StationsApiComponent {
   get stations(): Station[] {
     return this._stations;
   }
-  private _stations: Station[];
+  protected _stations: Station[];
   public stationApiService;
 
   constructor(stationApiService: StationApiService) {
     this.stationApiService = stationApiService;
-  }
-
-  ngOnInit() {
-    this.getStations().subscribe(stations => this._stations = stations);
   }
 
   getStations()  {
