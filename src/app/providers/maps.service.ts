@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import * as L from 'leaflet';
+import {Station} from "../models/station";
 
 const ZOOM = 22;
 
@@ -9,7 +10,8 @@ export class MapsService {
   public baseMaps: any;
   public icons: any;
   public map: L.Map;
-  public showStation: boolean;
+  private _showStation: boolean;
+  private _currStation: Station;
 
   private markers;
 
@@ -30,7 +32,16 @@ export class MapsService {
     this.icons = {};
     this.markers = {};
     this.generateIcons();
-    this.showStation = false;
+    this._showStation = false;
+    this._currStation = null;
+  }
+
+  showStation() : boolean {
+    return this._showStation;
+  }
+
+  currStation() : Station {
+    return this._currStation;
   }
 
   generateMap(map_id) {
@@ -64,12 +75,13 @@ export class MapsService {
         icon: this.iconForStation(station, iconType)
       });
 
-      let testFunction = () => {
-        this.showStation = true;
+      let openStationCard = () => {
+        this._currStation = station;
+        this._showStation = true;
       };
 
       marker.on({
-        'click': testFunction
+        'click': openStationCard
       });
       marker.addTo(this.map);
     } else {
@@ -95,6 +107,10 @@ export class MapsService {
     }
 
     return arr;
+  }
+
+  closeStationCard() {
+    this._showStation = false;
   }
 
   generateIcons() {

@@ -2,7 +2,7 @@
  * Created by andrewparrish on 11/19/16.
  */
 
-import {Component, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import { StationsApiComponent } from './stations.api.component';
 import { StationApiService } from '../../providers/station.api.service';
 import { Station } from "../../models/station";
@@ -18,9 +18,6 @@ import {MapsService} from "../../providers/maps.service";
 })
 
 export class MapComponent extends StationsApiComponent {
-  @ViewChild('infopane') infoPane;
-
-  private _currStation: Station;
   private iconDisplay: string;
 
   protected map: Map;
@@ -37,7 +34,7 @@ export class MapComponent extends StationsApiComponent {
   }
 
   showStation() : boolean {
-    return this.mapsService.showStation;
+    return this.mapsService.showStation();
   }
 
   setDocksActive() {
@@ -57,22 +54,19 @@ export class MapComponent extends StationsApiComponent {
   addStationIcons() {
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
-        if (this._currStation == undefined) {
-          this._currStation = station;
-        }
         this.mapsService.markerForStation(station, this.iconDisplay);
       });
     });
   }
 
-  clickedStation(stationId, index): void {
-    this._currStation = this.stations[index];
-    console.log("INFO PANE", this.infoPane);
+  closeCard() {
+    this.mapsService.closeStationCard();
   }
 
   currStation(): Station {
-    if (this._currStation) {
-      return this._currStation;
+    let station = this.mapsService.currStation();
+    if (station) {
+      return station;
     } else {
       return Station.defaultStation();
     }
