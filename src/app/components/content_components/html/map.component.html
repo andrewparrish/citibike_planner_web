@@ -24,7 +24,7 @@
   <button md-raised-button class="toggleButton" (click)="setDocksActive()">Docks</button>
 </div>
 
-<div id="mapContainer">
+<div id="mapContainer" [style.height]="mapHeight()">
   <div id="stationOverlay">
     <station-card *ngIf="showStation()" (onCloseEmitter)="closeCard()" [station]="currStation()"></station-card>
   </div>

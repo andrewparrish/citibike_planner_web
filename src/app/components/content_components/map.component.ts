@@ -19,12 +19,18 @@ import {MapsService} from "../../providers/maps.service";
 
 export class MapComponent extends StationsApiComponent {
   private iconDisplay: string;
+  private _mapHeight: string;
 
   protected map: Map;
 
   constructor(stationApiService: StationApiService, private mapsService: MapsService) {
     super(stationApiService);
     this.iconDisplay = 'bike';
+    this._mapHeight = (window.innerHeight - 64).toString() + 'px';
+  }
+
+  mapHeight() : string {
+    return this._mapHeight;
   }
 
   ngOnInit() {

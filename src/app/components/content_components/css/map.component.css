@@ -33,6 +33,7 @@
   z-index: 1002;
   position: relative;
   margin: 0 auto;
-  max-width: 600px;
-  top: 150px;
+  max-width: 400px;
+  max-height: 400px;
+  top: 75px;
 }
