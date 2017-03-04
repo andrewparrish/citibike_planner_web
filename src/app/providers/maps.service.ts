@@ -9,6 +9,7 @@ export class MapsService {
   public baseMaps: any;
   public icons: any;
   public map: L.Map;
+  public showStation: boolean;
 
   private markers;
 
@@ -29,6 +30,7 @@ export class MapsService {
     this.icons = {};
     this.markers = {};
     this.generateIcons();
+    this.showStation = false;
   }
 
   generateMap(map_id) {
@@ -47,10 +49,12 @@ export class MapsService {
 
   iconForStation(station, iconType) : L.Icon {
     let url = this.iconUrlForStation(station, iconType);
-    return L.icon({
+    let icon = L.icon({
       iconUrl: url,
       iconSize: [40, 90]
     });
+
+    return icon;
   }
 
   markerForStation(station, iconType) {
@@ -58,6 +62,14 @@ export class MapsService {
     if (this.markers[station.id] === undefined) {
       marker = L.marker(L.latLng(station.latitude, station.longitude), {
         icon: this.iconForStation(station, iconType)
+      });
+
+      let testFunction = () => {
+        this.showStation = true;
+      };
+
+      marker.on({
+        'click': testFunction
       });
       marker.addTo(this.map);
     } else {

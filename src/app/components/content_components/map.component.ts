@@ -36,6 +36,10 @@ export class MapComponent extends StationsApiComponent {
     this.addStationIcons();
   }
 
+  showStation() : boolean {
+    return this.mapsService.showStation;
+  }
+
   setDocksActive() {
     if (this.iconDisplay !== 'dock') {
       this.iconDisplay = 'dock';
@@ -53,6 +57,9 @@ export class MapComponent extends StationsApiComponent {
   addStationIcons() {
     this.getStations().subscribe((stations) => {
       stations.forEach((station) => {
+        if (this._currStation == undefined) {
+          this._currStation = station;
+        }
         this.mapsService.markerForStation(station, this.iconDisplay);
       });
     });
