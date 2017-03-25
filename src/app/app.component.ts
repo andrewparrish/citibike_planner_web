@@ -18,5 +18,9 @@ export class AppComponent {
       resetPasswordCallback: 'http://localhost:4200/user/change-password'
     });
     this.loggedIn = this._tokenService.userSignedIn();
+    this._tokenService.validateToken().subscribe(
+      null,
+      () => { this.loggedIn = false; }
+    );
   }
 }
