@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {LazyMapsAPILoaderConfigLiteral} from "angular2-google-maps/core";
-import HttpRequest = http.HttpRequest;
+// import HttpRequest = Http.HttpRequest;
 
 @Injectable()
 export class GoogleMapsApiKeyService extends ApiService {
