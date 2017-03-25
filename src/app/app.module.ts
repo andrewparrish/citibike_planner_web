@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { Angular2TokenService, A2tUiModule } from 'angular2-token';
 import { CommonModule } from "@angular/common";
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
 import { StationListComponent } from './components/content_components/station.list.component';
@@ -29,7 +30,8 @@ import {ChangePasswordComponent} from "./components/auth_components/change.passw
 		MaterialModule.forRoot(),
 		routing,
     AgmCoreModule.forRoot(),
-    A2tUiModule
+    A2tUiModule,
+    ChartsModule
   ],
 	declarations: [
     AppComponent,

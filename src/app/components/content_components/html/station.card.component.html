@@ -4,7 +4,11 @@
     <md-card-title>{{ station.station_name }}</md-card-title>
     <md-card-subtitle>{{ station.st_address_one }}<br>{{ station.st_address_two }}</md-card-subtitle>
   </md-card-header>
-  <img md-card-image [src]='getImageUrl()' />
+  <img md-card-image *ngIf="showingStreetView" [src]='getImageUrl()' />
+  <canvas baseChart width="400"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [chartType]="chartType"></canvas>
   <md-card-content>
     <p>Here is some more content</p>
   </md-card-content>

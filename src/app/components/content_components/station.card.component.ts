@@ -18,12 +18,27 @@ export class StationCardComponent extends StationsApiComponent {
   @Output() onCloseEmitter: EventEmitter<Boolean>;
   private favorited : boolean;
   private cardImage : string;
+  private showingStreetView: boolean;
+  private chartData: Array<any> = [];
+  private chartLabels: Array<any> = [];
+  private chartType: string;
 
   constructor(private sanitizer: DomSanitizer, stationApiService: StationApiService) {
     super(stationApiService);
     this.onCloseEmitter = new EventEmitter<Boolean>();
     this.favorited = false;
     this.cardImage = "https://d21xlh2maitm24.cloudfront.net/nyc/Transparent-Bike.png?mtime=20160420134420";
+    this.showingStreetView = false;
+    this.chartData = [{ data: [1, 2, 4, 6, 9] }];
+    this.chartLabels = ["a", "b", "c", "d", "e"];
+    this.chartType = "line";
+  }
+
+  ngOnChanges() {
+    console.log(this.station);
+    this.stationApiService.getChartData(this.station.id).subscribe(
+    )
+
   }
 
   closeCard() {

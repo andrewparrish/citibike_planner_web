@@ -28,6 +28,16 @@ export class StationApiService extends ApiService {
     return 'station/' + station_id + '/streetview/' + width;
   }
 
+  chartDataUrl(station_id) {
+    return 'station/' + station_id + '/data';
+  }
+
+  getChartData(station_id) {
+    return this._tokenService.get(this.chartDataUrl(station_id))
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error));
+  }
+
   getStreetView(station_id, width) {
     return this._tokenService.get(this.streetViewUrl(station_id, width))
       .map((res: Response) => res.json())
