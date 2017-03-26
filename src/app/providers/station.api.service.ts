@@ -29,7 +29,7 @@ export class StationApiService extends ApiService {
   }
 
   chartDataUrl(station_id) {
-    return 'station/' + station_id + '/data';
+    return 'station/' + station_id + '/stats';
   }
 
   getChartData(station_id) {

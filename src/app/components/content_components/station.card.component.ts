@@ -1,4 +1,4 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Component, Input, EventEmitter, Output, ViewChild} from '@angular/core';
 import { Station } from '../../models/station';
 import { ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -16,6 +16,8 @@ import {StationApiService} from "../../providers/station.api.service";
 export class StationCardComponent extends StationsApiComponent {
 	@Input() station: Station;
   @Output() onCloseEmitter: EventEmitter<Boolean>;
+  @ViewChild('myChart') myChart;
+
   private favorited : boolean;
   private cardImage : string;
   private showingStreetView: boolean;
@@ -30,13 +32,25 @@ export class StationCardComponent extends StationsApiComponent {
     this.cardImage = "https://d21xlh2maitm24.cloudfront.net/nyc/Transparent-Bike.png?mtime=20160420134420";
     this.showingStreetView = false;
     this.chartData = [{ data: [1, 2, 4, 6, 9] }];
-    this.chartLabels = ["a", "b", "c", "d", "e"];
+    this.chartLabels = [];
     this.chartType = "line";
   }
 
+  getChartLabels() {
+    return this.chartLabels;
+  }
+
   ngOnChanges() {
-    console.log(this.station);
     this.stationApiService.getChartData(this.station.id).subscribe(
+      (res) => {
+        this.chartData = res.data.bikes;
+        this.chartLabels = res.legend.map((element) => {
+          return new Date(element).getMinutes();
+        });
+        console.log(this.myChart);
+        this.myChart.chart.config.data.labels = this.chartLabels;
+      },
+      (err) => { console.log(err); }
     )
 
   }
