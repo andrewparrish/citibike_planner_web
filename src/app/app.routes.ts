@@ -17,7 +17,7 @@ export const routes: Routes = [
   { path: 'user/sign-up', component: SignUpComponent },
   { path: 'user/forgot-password', component: ForgotPasswordComponent },
   { path: 'user/change-password', component: ChangePasswordComponent }
-  //{ path: '', component: AppComponent }
+  { path: '', component: AppComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

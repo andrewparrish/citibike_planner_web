@@ -4,6 +4,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {StationsApiComponent} from "./stations.api.component";
 import {StationApiService} from "../../providers/station.api.service";
+import {BaseChartDirective} from "ng2-charts";
 
 @Component({
     selector: 'station-card',
@@ -16,7 +17,7 @@ import {StationApiService} from "../../providers/station.api.service";
 export class StationCardComponent extends StationsApiComponent {
 	@Input() station: Station;
   @Output() onCloseEmitter: EventEmitter<Boolean>;
-  @ViewChild('myChart') myChart;
+  @ViewChild(BaseChartDirective) myChart;
 
   private favorited : boolean;
   private cardImage : string;
@@ -31,7 +32,7 @@ export class StationCardComponent extends StationsApiComponent {
     this.favorited = false;
     this.cardImage = "https://d21xlh2maitm24.cloudfront.net/nyc/Transparent-Bike.png?mtime=20160420134420";
     this.showingStreetView = false;
-    this.chartData = [{ data: [1, 2, 4, 6, 9] }];
+    this.chartData = [{ data: [], label: 'bikes'}, { data: [], label: 'docks'}];
     this.chartLabels = [];
     this.chartType = "line";
   }
@@ -43,12 +44,13 @@ export class StationCardComponent extends StationsApiComponent {
   ngOnChanges() {
     this.stationApiService.getChartData(this.station.id).subscribe(
       (res) => {
-        this.chartData = res.data.bikes;
+        this.chartData = [{ data: res.data.bikes, label: 'bikes' }, { data: res.data.docks, label: 'docks'}];
         this.chartLabels = res.legend.map((element) => {
-          return new Date(element).getMinutes();
+          let date = new Date(element);
+          return ((date.getHours() + 11) % 12 + 1).toString() + ":" + date.getMinutes();
         });
-        console.log(this.myChart);
         this.myChart.chart.config.data.labels = this.chartLabels;
+        this.myChart.chart.update();
       },
       (err) => { console.log(err); }
     )
