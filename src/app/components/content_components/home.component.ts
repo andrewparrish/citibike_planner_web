@@ -17,7 +17,8 @@ export class HomeComponent implements  OnInit {
   constructor(private _tokenService: Angular2TokenService) {
     this.imagePaths = [
       "/assets/bikes/bike_0.svg",
-      "/assets/docks/dock_0.svg"
+      "/assets/docks/dock_0.svg",
+      "/assets/docks/dock_1.svg"
     ];
   }
 

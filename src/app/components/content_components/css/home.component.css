@@ -13,6 +13,16 @@
   border-radius: 25px;
 }
 
+#info info-circle {
+  height: 400px;
+}
+
+
+#circles {
+  width: 100%;
+  text-align: center;
+}
+
 #container {
   background-color: #cccccc;
   height: 2000px;
