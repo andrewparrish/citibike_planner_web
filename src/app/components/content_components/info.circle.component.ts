@@ -16,6 +16,7 @@ export class InfoCircleComponent {
   constructor() { }
 
   getImageUrl() {
+    console.log(this.imagePath);
     return this.imagePath;
   }
 }

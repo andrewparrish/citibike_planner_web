@@ -1,15 +1,19 @@
-#container {
+#background {
   background-image: url('/assets/nyc.jpg');
   height: 1025px;
 }
 
 #info {
   position: absolute;
-  top: 100vh;
+  top: 1040px;
   width: 80%;
   left: 10%;
   background: white;
   z-index: 1000;
-  height: 200px;
   border-radius: 25px;
+}
+
+#container {
+  background-color: #cccccc;
+  height: 2000px;
 }

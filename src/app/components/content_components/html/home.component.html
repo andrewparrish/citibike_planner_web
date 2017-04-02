@@ -1,5 +1,9 @@
 <div id="container">
-  <div id="info">
-    <info-circle [imagePath]="imagePage"></info-circle>
+  <div id="background">
+      <div id="info">
+        <info-circle [imagePath]="getImagePath(0)"></info-circle>
+        <info-circle [imagePath]="getImagePath(1)"></info-circle>
+      </div>
   </div>
 </div>
+

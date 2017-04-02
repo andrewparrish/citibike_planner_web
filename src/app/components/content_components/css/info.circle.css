@@ -1,8 +1,19 @@
 .circleBase {
   border-radius: 50%;
+  margin: 20px;
 }
 #circle {
-  width: 100px;
-  height: 100px;
   background-color: #0074D9;
+  position: relative;
+  width:30%;
+  height:0px;
+  padding-bottom:30%;
+}
+
+#circle img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 65%;
 }
