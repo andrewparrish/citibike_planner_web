@@ -1,0 +1,8 @@
+.circleBase {
+  border-radius: 50%;
+}
+#circle {
+  width: 100px;
+  height: 100px;
+  background-color: #0074D9;
+}

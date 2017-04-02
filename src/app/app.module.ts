@@ -21,6 +21,7 @@ import { SignUpComponent } from './components/auth_components/sign.up.component'
 import { routing } from './app.routes';
 import {ForgotPasswordComponent} from "./components/auth_components/forgot.password.component";
 import {ChangePasswordComponent} from "./components/auth_components/change.password.component";
+import {InfoCircleComponent} from "./components/content_components/info.circle.component";
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import {ChangePasswordComponent} from "./components/auth_components/change.passw
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    InfoCircleComponent
   ],
   providers: [Angular2TokenService],
   bootstrap: [AppComponent]
