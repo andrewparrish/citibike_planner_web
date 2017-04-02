@@ -9,6 +9,7 @@ import { SignUpComponent } from './components/auth_components/sign.up.component'
 import { AppComponent } from './app.component';
 import {ForgotPasswordComponent} from "./components/auth_components/forgot.password.component";
 import {ChangePasswordComponent} from "./components/auth_components/change.password.component";
+import {HomeComponent} from "./components/content_components/home.component";
 
 export const routes: Routes = [
 	{ path: 'stations', component: StationListComponent },
@@ -17,7 +18,7 @@ export const routes: Routes = [
   { path: 'user/sign-up', component: SignUpComponent },
   { path: 'user/forgot-password', component: ForgotPasswordComponent },
   { path: 'user/change-password', component: ChangePasswordComponent },
-  { path: '', component: AppComponent }
+  { path: '', component: HomeComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

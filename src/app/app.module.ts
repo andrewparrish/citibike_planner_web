@@ -10,6 +10,7 @@ import { CommonModule } from "@angular/common";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/content_components/home.component';
 import { StationListComponent } from './components/content_components/station.list.component';
 import { StationListItemComponent } from './components/content_components/station.list.item.component';
 import { StationCardComponent } from './components/content_components/station.card.component';
@@ -35,6 +36,7 @@ import {ChangePasswordComponent} from "./components/auth_components/change.passw
   ],
 	declarations: [
     AppComponent,
+    HomeComponent,
 		StationListComponent,
 		StationCardComponent,
     StationListItemComponent,
