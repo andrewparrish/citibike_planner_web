@@ -23,7 +23,9 @@ export class HomeComponent implements  OnInit {
     ];
 
     this.infoText = [
-      "Test Text"
+      "This is a long series of text info. Hopefully it wraps around and looks somewhat decent.",
+      "This is a long series of text info. Hopefully it wraps around and looks somewhat decent.",
+      "This is a long series of text info. Hopefully it wraps around and looks somewhat decent."
     ]
   }
 
