@@ -13,6 +13,7 @@ import {Angular2TokenService} from "angular2-token";
 
 export class HomeComponent implements  OnInit {
   imagePaths: any;
+  infoText: any;
 
   constructor(private _tokenService: Angular2TokenService) {
     this.imagePaths = [
@@ -20,11 +21,18 @@ export class HomeComponent implements  OnInit {
       "/assets/docks/dock_0.svg",
       "/assets/docks/dock_1.svg"
     ];
-  }
 
+    this.infoText = [
+      "Test Text"
+    ]
+  }
 
   ngOnInit() {
 
+  }
+
+  getInfoText(index) {
+    return this.infoText[index];
   }
 
   getImagePath(index) {

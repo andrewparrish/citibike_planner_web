@@ -12,11 +12,11 @@ import {Component, Input} from "@angular/core";
 
 export class InfoCircleComponent {
   @Input() imagePath: string;
+  @Input() infoText: string;
 
   constructor() { }
 
   getImageUrl() {
-    console.log(this.imagePath);
     return this.imagePath;
   }
 }
