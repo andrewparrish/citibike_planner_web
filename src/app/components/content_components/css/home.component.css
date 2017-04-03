@@ -5,12 +5,12 @@
 
 #info {
   position: absolute;
-  top: 1040px;
   width: 90%;
   left: 5%;
   background: white;
   z-index: 1000;
   border-radius: 25px;
+  bottom: 20px;
 }
 
 #info info-circle {
@@ -21,9 +21,4 @@
 #circles {
   width: 100%;
   text-align: center;
-}
-
-#container {
-  background-color: #cccccc;
-  height: 2000px;
 }
