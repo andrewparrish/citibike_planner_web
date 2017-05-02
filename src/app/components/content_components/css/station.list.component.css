@@ -5,6 +5,7 @@
   border-radius: 3px;
   margin: 0 auto;
   margin-top: 40px;
+  min-height: 100vh;
 }
 
 .station-list /deep/ .card-item > .md-list-item{

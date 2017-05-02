@@ -19,9 +19,11 @@ md-sidenav-layout {
 }
 
 #footer {
+  margin-top: 20px;
   position: absolute;
   bottom: 0px;
   height: 20px;
   width: 100%;
   background-color: #cccccc;
+  text-align: center;
 }
